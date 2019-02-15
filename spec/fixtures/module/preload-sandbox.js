@@ -9,6 +9,15 @@
     window.process = process
     if (process.env.sandboxmain) {
       window.test = {
+        crash: typeof process.crash,
+        hang: typeof process.hang,
+        getCreationTime: typeof process.getCreationTime,
+        getHeapStatistics: typeof process.getHeapStatistics,
+        getProcessMemoryInfo: typeof process.getProcessMemoryInfo,
+        getSystemMemoryInfo: typeof process.getSystemMemoryInfo,
+        getSystemVersion: typeof process.getSystemVersion,
+        getCPUUsage: typeof process.getCPUUsage,
+        getIOCounters: typeof process.getIOCounters,
         env: process.env,
         execPath: process.execPath,
         pid: process.pid,

@@ -1923,6 +1923,15 @@ describe('BrowserWindow module', () => {
 
       it('validates process APIs access in sandboxed renderer', (done) => {
         ipcMain.once('answer', function (event, test) {
+          assert.strictEqual(test.crash, 'function')
+          assert.strictEqual(test.hang, 'function')
+          assert.strictEqual(test.getCreationTime, 'function')
+          assert.strictEqual(test.getHeapStatistics, 'function')
+          assert.strictEqual(test.getProcessMemoryInfo, 'function')
+          assert.strictEqual(test.getSystemMemoryInfo, 'function')
+          assert.strictEqual(test.getSystemVersion, 'function')
+          assert.strictEqual(test.getCPUUsage, 'function')
+          assert.strictEqual(test.getIOCounters, 'function')
           assert.strictEqual(test.arch, remote.process.arch)
           assert.strictEqual(test.platform, remote.process.platform)
           assert.deepStrictEqual(...resolveGetters(test.env, remote.process.env))
